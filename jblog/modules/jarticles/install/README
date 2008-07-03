@@ -1,0 +1,13 @@
+jCategories...
+
+svn co http://forge.jelix.org/svn/jblog/trunk/jblog/modules/jcategories
+
+HOW TO USE : 
+
+1/ display categories' list 
+$this->_tpl->assignZone("categorylist", "jcategories~categorylist");
+// or
+{zone "jcategories~categorylist"}
+
+2/ get name of a category by its id
+$categoryName = $srv_categories->getCategoryNameById($scope, $id);

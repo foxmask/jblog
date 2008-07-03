@@ -1,0 +1,29 @@
+This is a Jelix module which purpose a full gestion of comments.
+
+
+svn co http://forge.jelix.org/svn/sharecode/trunk/sharecode/modules/jcomments
+
+lastcomments zone isn't ready yet !!!!
+
+
+To personalize this, you have to :
+* comments.dao.xml : check the table name
+* comments.classic.php : in _afterCreate method check destination
+
+
+
+HOW TO USE :
+
+// in tpl, all comments of an object : 
+
+{zone "jcomments~view", array('id'=>$id, 'scope'=>$scope)}
+
+{zone "jcomments~edit", array('id'=>$id, 'scope'=>$scope,'return_url'=>"admin~snippets:view", 'return_url_params'=>$id)}
+
+
+
+// in php file, number of comments of an object : 
+$nbcomments = jClasses::getService("jcomments~comments")->getNbComments($scope, $id);
+
+(for example ) : 
+$nbcomments = jClasses::getService("jcomments~comments")->getNbComments("snippet", $id);

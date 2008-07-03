@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns="http://jelix.org/ns/forms/1.1">
+
+
+<!-- <input ref="com_scope" required="true" maxlength="50">
+    <label>com_scope</label>
+</input>
+
+<input ref="com_subject_id" required="true" type="integer">
+    <label>com_subject_id</label>
+</input>
+
+<input ref="user_login" required="true" maxlength="50">
+    <label>user_login</label>
+</input> -->
+
+<textarea ref="com_content" required="true">
+	<label locale="jcomments~comments.label.textarea" />
+</textarea>
+
+<!-- <input ref="com_created_at" required="true" type="datetime">
+    <label>com_created_at</label>
+</input> -->
+
+<submit ref="_submit">
+	<label locale="jcomments~comments.label.valid" />
+</submit>
+</forms>

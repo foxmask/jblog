@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns="http://jelix.org/ns/forms/1.1">
+
+
+<!--<input ref="author" required="true" maxlength="50">
+	<label>author</label>
+</input>-->
+
+<menulist ref="category">
+	<label>category</label>
+	<datasource dao="jcategories~categories" method="findAll"
+		labelproperty="cat_name" valueproperty="cat_id"/>
+</menulist>
+
+<textarea ref="tags" rows="2" cols="60">
+	<label>tags</label>
+</textarea>
+
+<input ref="title" required="true" maxlength="150">
+	<label>title</label>
+</input>
+
+<textarea ref="content" required="true" type="html">
+	<label>content</label>
+</textarea>
+
+<!--<input ref="date" defaultvalue="now" readonly="true" required="true" type="datetime">
+	<label>date</label>
+</input>-->
+
+<submit ref="_submit">
+	<label>ok</label>
+</submit>
+</forms>

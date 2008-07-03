@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dao xmlns="http://jelix.org/ns/dao/1.0">
+    <datasources>
+        <primarytable name="blog_articles" realname="blog_articles" primarykey="art_id" />
+		<foreigntable name="blog_categories" realname="blog_categories" primarykey="cat_id" onforeignkey="cat_id" />
+    </datasources>
+    <record>
+
+
+        
+    <property name="id" fieldname="art_id" datatype="autoincrement" default=""/>
+    <property name="author" fieldname="user_login" datatype="string" required="true" maxlength="50"/>
+    <property name="title" fieldname="art_title" datatype="string" required="true" maxlength="150"/>
+    <property name="content" fieldname="art_content" datatype="text" required="true"/>
+    <property name="date" fieldname="art_created_at" datatype="datetime" required="false"/>
+    <property table="blog_categories" name="category" fieldname="cat_name" datatype="string" required="true"/>
+    <property table="blog_categories" name="category_id" fieldname="cat_id" datatype="integer" required="true"/>
+
+
+    <!--<property name="" fieldname="" datatype="string/int/float/autoincrement/date"
+        required="yes"
+        maxlength="" minlength="" regexp=""
+        sequence=""
+        updatepattern="" insertpattern="" selectpattern=""
+    />-->
+    </record>
+    <factory>
+        <method name="findAll" type="select">
+            <order>
+                 <orderitem property="date" way="desc" />
+            </order>
+        </method>
+
+        <method name="count" type="count">
+        </method>
+
+        <method name="countByCategory" type="count">
+            <parameter name="category" />
+            <conditions logic="and">
+                <eq property="category" value="$category" />
+            </conditions>
+        </method>
+    
+        <!--<method name="findByStage" type="select/selectfirst/delete/update/php">
+            <parameter name="" />
+            <values>
+                <value property="" value="" />
+            </values>
+            <conditions logic="and/or">
+                <eq property="" value="" />
+            </conditions>
+            <order>
+                <orderitem property="" way="asc/desc" />
+            </order>
+            <limit offset="" count=""/>
+            <body><![CDATA[
+            ]]></body>
+        </method>-->
+        
+    </factory>
+</dao>

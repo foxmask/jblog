@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dao xmlns="http://jelix.org/ns/dao/1.0">
+    <datasources> <!-- TO ADAPT TO YOUR DATABASE -->
+        <primarytable name="jcomments" realname="sc_comments" primarykey="com_id" />
+    </datasources>
+    <record>
+
+
+        
+    <property name="com_id" fieldname="com_id" datatype="autoincrement"/> <!-- comment's id -->
+    
+    
+    <property name="com_scope" fieldname="com_scope" datatype="string" required="true" maxlength="50"/> 
+                <!-- comment of what type of object ? snippet, app, article, news ? -->
+    
+    
+    <property name="com_subject_id" fieldname="com_subject_id" datatype="int" required="true"/>
+                <!-- id of the object (related to com_scope) -->
+    
+    
+    
+    <property name="user_login" fieldname="user_login" datatype="string" required="true" maxlength="50"/>
+                <!-- trivial -->
+    
+    
+    <property name="com_content" fieldname="com_content" datatype="text" required="true"/>
+                <!-- trivial -->    
+    
+    
+    
+    <property name="com_created_at" fieldname="com_created_at" datatype="datetime" required="true" insertpattern="NOW()"/>
+                <!-- date in format : date ("Y-m-d H:i:s"); -->
+
+
+    </record>
+    <factory>
+         <method name="getByObject" type="select">
+             <parameter name="scope" />
+             <parameter name="id" />
+             
+            <conditions>
+				<eq property="com_subject_id" expr="$id" />
+				<eq property="com_scope" expr="$scope" />
+            </conditions>  
+            <order>
+                <orderitem property="com_created_at" way="asc" />
+            </order>            
+        </method>
+        
+         <method name="nbCommentsByObject" type="count">
+             <parameter name="scope" />
+             <parameter name="id" />
+             
+            <conditions>
+				<eq property="com_subject_id" expr="$id" />
+				<eq property="com_scope" expr="$scope" />
+            </conditions>        
+        </method>
+        
+        
+         <method name="findAllForZone" type="select">
+             <parameter name="id" />
+             
+	         <order>
+                <orderitem property="com_created_at" way="desc" />
+           </order>
+	         <limit offset="0" count="$id" />
+	     </method>
+        
+    </factory>
+</dao>

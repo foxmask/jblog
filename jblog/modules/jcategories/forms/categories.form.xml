@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns="http://jelix.org/ns/forms/1.1">
+
+<!--<input ref="cat_id" required="false" type="integer">
+    <label>cat_id</label>
+</input>-->
+
+<input ref="cat_name" required="true" maxlength="50">
+    <label>cat_name</label>
+</input>
+
+<submit ref="_submit">
+	<label locale="jcategories~admin.label.valid" />
+</submit>
+</forms>
