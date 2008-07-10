@@ -13,6 +13,7 @@
     <property name="title" fieldname="art_title" datatype="string" required="true" maxlength="150"/>
     <property name="content" fieldname="art_content" datatype="text" required="true"/>
     <property name="date" fieldname="art_created_at" datatype="datetime" required="false"/>
+    <property name="published" fieldname="art_published" datatype="boolean" required="false"/>
     <property table="blog_categories" name="category" fieldname="cat_name" datatype="string" required="true"/>
     <property name="category_id" fieldname="cat_id" datatype="integer" required="true"/>
 
@@ -29,6 +30,14 @@
             <order>
                  <orderitem property="date" way="desc" />
             </order>
+        </method>
+		
+        <method name="getPublished" type="selectfirst">
+			<parameter name="id" />
+			<conditions logic="and">
+				<eq property="id" value="$id" />
+				<eq property="published" value="TRUE" />
+			</conditions>
         </method>
 
         <method name="count" type="count">

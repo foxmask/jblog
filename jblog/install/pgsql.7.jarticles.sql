@@ -6,6 +6,7 @@ CREATE TABLE blog_articles (
     art_title VARCHAR(150) NOT NULL,
     art_content TEXT NOT NULL,
     art_created_at TIMESTAMP NOT NULL,
+	art_published boolean DEFAULT false,
     
     PRIMARY KEY (art_id),
     
@@ -17,3 +18,4 @@ CREATE TABLE blog_articles (
 
 CREATE INDEX idx1_art ON blog_articles (cat_id);
 CREATE INDEX idx2_art ON blog_articles (user_login);
+CREATE INDEX idx3_art ON blog_articles (art_published);

@@ -20,6 +20,12 @@
 	<label>title</label>
 </input>
 
+<radiobuttons ref="published">
+	<label>Publié</label>
+	<item value="TRUE">Oui</item>
+	<item value="FALSE">Non</item>
+</radiobuttons>
+
 <textarea ref="content" required="true" type="html">
 	<label>content</label>
 </textarea>

@@ -72,6 +72,8 @@ class articlesCtrl extends jController {
 
         $cond = jDao::createConditions();
         $cond->addItemOrder('date', 'desc');
+		$cond->addCondition('published','=','true');
+		
         $list = $dao->findBy($cond,0,10);
         foreach($list as $article){
             if($first){

@@ -33,6 +33,7 @@ class articlesListZone extends jZone {
 		if($category != null) {
 			$conditions->addCondition('category_id', '=', $category);
 		}
+		$conditions->addCondition('published', '=', 'true');
 		$conditions->addItemOrder('date', $order);
 		$articles = $artfactory->findBy($conditions, $offset, $listPageSize+$offset);
 		$nbArticles = $articles->rowCount();

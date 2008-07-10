@@ -25,8 +25,8 @@ class adminCtrl extends jControllerDaoCrud {
     protected $dao = 'jarticles~articles';
     protected $form = 'jarticles~articles';
 	
-	protected $propertiesForList = array('date', 'category', 'title', 'author');
-	protected $propertiesForRecordsOrder = array('date'=>'desc', 'category'=>'asc', 'author'=>'asc', 'title'=>'asc');
+	protected $propertiesForList = array('published', 'date', 'category', 'title', 'author');
+	protected $propertiesForRecordsOrder = array('published'=>'asc', 'date'=>'desc', 'category'=>'asc', 'author'=>'asc', 'title'=>'asc');
 		
 	
 	protected function _getResponse(){
@@ -61,6 +61,9 @@ class adminCtrl extends jControllerDaoCrud {
 		
 	    $tags = jClasses::getService("jtags~tags")->getTagsBySubject($gJConfig->jblog['scope'], $this->param('id'));
 		$form->setData('tags', implode(', ',$tags));
+		
+		$published = ($form->getData('published') == 't') ? 'TRUE' : 'FALSE';
+		$form->setData('published', $published);
     }
     
     /**
@@ -91,6 +94,9 @@ class adminCtrl extends jControllerDaoCrud {
 		$wr = new jWiki('wr3_to_xhtml');
 		$content = $wr->render($form->getData('content'));
 		$form->setData('content', $content);
+		
+		$published = ($form->getData('published') == 't') ? 'TRUE' : 'FALSE';
+		$form->setData('published', $published);
     }
 	
     /* overload this method if you want to do additionnal things before the deletion of a record

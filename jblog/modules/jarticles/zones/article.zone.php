@@ -19,8 +19,8 @@ class articleZone extends jZone {
 		global $gJConfig;
 		$id = $this->getParam("id");
         $artfactory = jDao::get("jarticles~articles");
-		$article = $artfactory->get($id);
-				
+		$article = $artfactory->getPublished($id);
+		
         $this->_tpl->assign('article', $article);
 		
 		$srv_tags = jClasses::getService("jtags~tags");
