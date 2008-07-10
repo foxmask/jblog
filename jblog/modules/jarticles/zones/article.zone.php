@@ -25,12 +25,12 @@ class articleZone extends jZone {
 		
 		$srv_tags = jClasses::getService("jtags~tags");
 		$tags = $srv_tags->getTagsBySubject($gJConfig->jblog['scope'], $id);
-		$this->_tpl->assign("tags", $tags);
+		$this->_tpl->assign("tags", implode(', ', $tags));
     }
 	
 	public function __construct($params=array()){
 		// Cancel Cache creating AND LOADING
-		if(jAcl2::check('admin.articles.read'))
+		if(jAcl2::check('admin.view'))
 			$this->_useCache=false;
 		
 		parent::__construct($params);

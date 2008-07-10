@@ -18,17 +18,17 @@
         <td>{$article->title}</td>
         <td>{$article->author}</td>
         <td>{$article->date}</td>
-		{ifacl2 "admin.articles.read"}
+		{ifacl2 "admin.view"}
         	<th><a href="{jUrl 'jarticles~admin:view', array('id' => $article->id)}">{@jarticles~default.modify.button@}</a></td>
 		{/ifacl2}
     </tr>
 	<tr>
-		{ifacl2 "admin.articles.read"}
+		{ifacl2 "admin.view"}
 			<td colspan="5">
 		{else}
 			<td colspan="4">
 		{/ifacl2}
-		{foreach $tags as $tag}{$tag}, {/foreach}
+		{$tags}
 		</td>
 	</tr>
 	<tr>

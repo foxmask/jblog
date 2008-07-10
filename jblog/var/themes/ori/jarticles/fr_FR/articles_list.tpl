@@ -16,8 +16,9 @@
     </tr>
 </thead>
 <tbody>
+{cycle_init 'col1,col1,col2,col2'}
 {foreach $articles as $a}
-    <tr>
+    <tr class="{cycle}">
         <td>{$a->category}</td>
         <td><a href="{jurl 'jarticles~articles:view', array('id'=>$a->id)}">{$a->title}</a></td>
         <td>{$a->author}</td>
@@ -27,7 +28,7 @@
 		{/ifacl2}
     </tr>
 	{if $fetchContent === true}
-		<tr>
+		<tr class="{cycle}">
 			{ifacl2 "admin.view"}
 				<td colspan="5">
 			{else}

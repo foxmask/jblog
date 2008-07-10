@@ -11,8 +11,9 @@
 class categories {
     protected $dao_categories = "jcategories~categories";
     
-    
     function getCategoryNameById($id) {
+		if(!jacl2::check('jcategories.read'))
+			return;
         $factory_categories = jDao::get($this->dao_categories);
         $daocategory = $factory_categories->get($id);
         $category = $daocategory->cat_name;
@@ -20,6 +21,8 @@ class categories {
     }
     
     function getAllCategories() {
+		if(!jacl2::check('jcategories.list'))
+			return;
         $factory_categories = jDao::get($this->dao_categories);
         $categories = $factory_categories->findAll();
         $categoryList = array();
@@ -30,6 +33,8 @@ class categories {
     }
         
     function createCategory($cat_name) {
+		if(!jacl2::check('jcategories.create'))
+			return;
         $factory_categories = jDao::get($this->dao_categories);
         $newCategory = jDao::createRecord($this->dao_categories);
         $newCategory->cat_name = $cat_name;

@@ -9,12 +9,20 @@
 */
 
 class articlesCtrl extends jController {	
+    public $pluginParams = array(
+        'index'=>array('jacl2.rights.and'=>array('jarticles.list')),
+        'byCategory'=>array('jacl2.rights.and'=>array('jarticles.list')),
+        'byTag'=>array('jacl2.rights.and'=>array('jarticles.list')),
+        'view'=>array('jacl2.rights.and'=>array('jarticles.read')),
+        'rss'=>array('jacl2.rights.and'=>array('jarticles.list','jarticles.read')),
+	);
+	
     /**
     *
     */
     function index() {
         $rep = $this->getResponse('articlesHtml');
-        $rep->body->assignZone('MAIN', 'articlesList', array('fetchContent'=>false));
+        $rep->body->assignZone('MAIN', 'articlesList', array('fetchContent'=>true));
         return $rep;
     }
 
@@ -57,7 +65,7 @@ class articlesCtrl extends jController {
         $first = true;
 		
 		$rep->infos->title = $gJConfig->jblog['name'];
-		$rep->infos->webSiteUrl= "http://" .$_SERVER['SERVER_NAME'].jUrl::get('jarticles~articles:index');
+		$rep->infos->webSiteUrl= "http://" .$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].jUrl::get('jarticles~articles:index');
 		$rep->infos->copyright = $gJConfig->jblog['copyright'];
 		$rep->infos->description = $gJConfig->jblog['description'];
 		$rep->infos->ttl=60;
@@ -65,7 +73,6 @@ class articlesCtrl extends jController {
         $cond = jDao::createConditions();
         $cond->addItemOrder('date', 'desc');
         $list = $dao->findBy($cond,0,10);
-
         foreach($list as $article){
             if($first){
                 //$rep->infos->updated = $snippet->sn_updated_at;
@@ -73,7 +80,7 @@ class articlesCtrl extends jController {
                 $first=false;
             }
 			
-            $url = "http://" .$_SERVER['SERVER_NAME'].jUrl::get('jarticles~articles:view', array('id'=>$article->id));
+            $url = "http://" .$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].jUrl::get('jarticles~articles:view', array('id'=>$article->id));
 			
 			$wr = new jWiki('wr3_to_xhtml');
 			$content = $wr->render($article->content);

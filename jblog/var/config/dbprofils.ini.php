@@ -15,8 +15,8 @@ default = pgsql
 driver="pgsql"
 database="jblog"
 host="localhost"
-user="pgsql"
-password=
+user="postgres"
+password=""
 persistant=on
 force_encoding=on
 

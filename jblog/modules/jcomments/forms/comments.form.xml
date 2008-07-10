@@ -14,9 +14,14 @@
     <label>user_login</label>
 </input> -->
 
+<!-- HACKBYNUKS
 <textarea ref="com_content" required="true">
 	<label locale="jcomments~comments.label.textarea" />
+</textarea> -->
+<textarea ref="com_content" required="true" type="html">
+	<label locale="jcomments~comments.label.textarea" />
 </textarea>
+<!-- /HACKBYNUKS -->
 
 <!-- <input ref="com_created_at" required="true" type="datetime">
     <label>com_created_at</label>

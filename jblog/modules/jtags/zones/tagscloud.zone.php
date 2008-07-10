@@ -23,8 +23,8 @@ class tagscloudZone extends jZone {
         
         $tags = $matfactory->findAll();
         
-        define("MIN_SIZE", 9);
-        define("MAX_SIZE", 36);
+        define("MIN_SIZE", 0.5);
+        define("MAX_SIZE", 2);
 
         $min = $max = 0;
         

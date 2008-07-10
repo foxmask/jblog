@@ -9,7 +9,7 @@
         {@jcomments~comments.by@} 
             {$c->user_login}
     </div>
-    {$c->com_content}
+    {$c->com_content|wiki:"wr3_to_xhtml"}
     <hr />
 {/foreach}
 

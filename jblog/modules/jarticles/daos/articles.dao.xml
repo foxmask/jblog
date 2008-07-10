@@ -14,7 +14,7 @@
     <property name="content" fieldname="art_content" datatype="text" required="true"/>
     <property name="date" fieldname="art_created_at" datatype="datetime" required="false"/>
     <property table="blog_categories" name="category" fieldname="cat_name" datatype="string" required="true"/>
-    <property table="blog_categories" name="category_id" fieldname="cat_id" datatype="integer" required="true"/>
+    <property name="category_id" fieldname="cat_id" datatype="integer" required="true"/>
 
 
     <!--<property name="" fieldname="" datatype="string/int/float/autoincrement/date"

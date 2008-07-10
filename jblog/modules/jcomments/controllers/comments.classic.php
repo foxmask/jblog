@@ -10,19 +10,18 @@
 */
 
 class commentsCtrl extends jControllerDaoCrud {
-
     public $pluginParams = array(
-        '*'        => array('auth.required' => true),
-        'index'=>array('jacl2.rights.and'=>array('jcomments.comments.view')),
-        // 'precreate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        //         'create'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        //          'savecreate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-          'preupdate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        'editupdate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        'saveupdate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        'view'=>array('jacl2.rights.and'=>array('jcomments.comments.view')),
-        'delete'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        );
+        '*'=>array('jacl2.rights.and'=>array('admin.view')),
+        'index'=>array('jacl2.rights.and'=>array('jcomments.list')),
+        'view'=>array('jacl2.rights.and'=>array('jcomments.read')),
+        'precreate'=>array('jacl2.rights.and'=>array('jcomments.create')),
+        'create'=>array('jacl2.rights.and'=>array('jcomments.create')),
+        'savecreate'=>array('jacl2.rights.and'=>array('jcomments.create')),
+        'preupdate'=>array('jacl2.rights.and'=>array('jcomments.update')),
+        'editupdate'=>array('jacl2.rights.and'=>array('jcomments.update')),
+        'saveupdate'=>array('jacl2.rights.and'=>array('jcomments.update')),
+        'delete'=>array('jacl2.rights.and'=>array('jcomments.delete')),
+	);
 
     protected $dao = 'jcomments~comments';
     protected $form = 'jcomments~comments';
@@ -75,7 +74,20 @@ class commentsCtrl extends jControllerDaoCrud {
     
     
     
-    
-    
+    //HACKBYNUKS
+	/**
+     * overload this method if you want to do additionnal things on the response and on the view template
+     * during the view action.
+     * @param jFormsBase $form the form
+     * @param jHtmlResponse $resp the response
+     * @param jtpl $tpl the template to display the form content
+     */
+    protected function _view($form, $resp, $tpl) {
+		$wr = new jWiki('wr3_to_xhtml');
+		$content = $wr->render($form->getData('com_content'));
+		$form->setData('com_content', $content);
+    }
+	// /HACKBYNUKS
+
 }
 ?>

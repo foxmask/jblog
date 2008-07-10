@@ -47,7 +47,7 @@ class articlesListZone extends jZone {
 	
 	public function __construct($params=array()){
 		// Cancel Cache creating AND LOADING
-		if(jAcl2::check('admin.articles.read'))
+		if(jAcl2::check('admin.view'))
 			$this->_useCache=false;
 		parent::__construct($params);
    	}

@@ -16,7 +16,7 @@ trustedModules =
 pluginsPath = lib:jelix-plugins/,app:plugins/
 modulesPath = lib:jelix-modules/,app:modules/
 
-theme = default
+theme = ori
 
 [jblog]
 scope="jblog"
@@ -30,6 +30,7 @@ enableAcl2DbEventListener=on
 
 [coordplugins]
 auth = auth.coord.ini.php
+jacl2 = jacl2.coord.ini.php
 ;nom = nom_fichier_ini
 
 [error_handling]
@@ -80,7 +81,7 @@ multiview = off
 ; entry points which are not in the same directory (ex: you have two entry point : http://foo.com/aaa/index.php 
 ; and http://foo.com/aaa/bbb/other.php ), you MUST set the basePath (ex here, the higher entry point is index.php so
 ; : basePath="/aaa/" )
-basePath = "/svn/jblog/www/"
+basePath = "/"
 
 
 defaultEntrypoint= index

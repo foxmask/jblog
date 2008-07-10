@@ -10,16 +10,17 @@
 
 class adminCtrl extends jControllerDaoCrud {
     public $pluginParams = array(
-        '*'        => array('auth.required' => true, 'jacl2.right.and'=>array('articles.admin.access')),
-        // 'precreate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        //         'create'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        //          'savecreate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        'preupdate'=>array('jacl2.rights.and'=>array('articles.admin.modify')),
-        'editupdate'=>array('jacl2.rights.and'=>array('articles.admin.modify')),
-        'saveupdate'=>array('jacl2.rights.and'=>array('articles.admin.modify')),
-        'view'=>array('jacl2.rights.and'=>array('articles.admin.view')),
-        'delete'=>array('jacl2.rights.and'=>array('articles.admin.delete')),
-        );
+        '*'=>array('jacl2.rights.and'=>array('admin.view')),
+        'index'=>array('jacl2.rights.and'=>array('jarticles.list')),
+        'view'=>array('jacl2.rights.and'=>array('jarticles.read')),
+        'precreate'=>array('jacl2.rights.and'=>array('jarticles.create')),
+        'create'=>array('jacl2.rights.and'=>array('jarticles.create')),
+        'savecreate'=>array('jacl2.rights.and'=>array('jarticles.create')),
+        'preupdate'=>array('jacl2.rights.and'=>array('jarticles.update')),
+        'editupdate'=>array('jacl2.rights.and'=>array('jarticles.update')),
+        'saveupdate'=>array('jacl2.rights.and'=>array('jarticles.update')),
+        'delete'=>array('jacl2.rights.and'=>array('jarticles.delete')),
+	);
 	
     protected $dao = 'jarticles~articles';
     protected $form = 'jarticles~articles';

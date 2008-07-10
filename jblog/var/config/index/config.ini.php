@@ -1,8 +1,8 @@
 ;<?php die(''); ?>
 ;for security reasons , don't remove or modify the first line
 
-startModule = "jarticles"
-startAction = "articles:index"
+startModule = "jblog"
+startAction = "default:index"
 
 [coordplugins]
 ;nom = file_ini_name or 1

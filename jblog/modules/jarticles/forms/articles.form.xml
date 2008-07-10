@@ -6,7 +6,7 @@
 	<label>author</label>
 </input>-->
 
-<menulist ref="category">
+<menulist ref="category_id">
 	<label>category</label>
 	<datasource dao="jcategories~categories" method="findAll"
 		labelproperty="cat_name" valueproperty="cat_id"/>

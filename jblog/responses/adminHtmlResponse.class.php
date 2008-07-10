@@ -29,7 +29,12 @@ class adminHtmlResponse extends jResponseHtml {
 			$this->bodyTpl = 'jblog~main';
 	        $this->body->assign('MAIN',$tpl);
 		}
-        $this->body->assignZoneIfNone('HEADER','jcommunity~status');
+		
+		$tpl = new jTpl();
+        $tpl->assignZone('STATUS','jcommunity~status');
+        $this->body->assignIfNone('HEADER',$tpl->fetch('jblog~header'));
+		
+		$this->body->assignIfNone('MAIN','<p>no content</p>');
 		$this->body->assignZone('SIDEBAR_RIGHT', 'admin~sideBarRight');
         $this->body->assignIfNone('FOOTER',$gJConfig->jblog['copyright']);
         

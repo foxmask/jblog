@@ -29,11 +29,16 @@ class mainHtmlResponse extends jResponseHtml {
 			$this->bodyTpl = 'jblog~main';
 	        $this->body->assign('MAIN',$tpl);
 		}
+		
 		$tpl = new jTpl();
-		$tpl->assign('server_url', $_SERVER['SERVER_NAME']);
-        $this->body->assignZoneIfNone('HEADER','jcommunity~status');
-        $this->body->assignIfNone('MAIN','<p>no content</p>');
+		$tpl->assign('server_url', $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']);
         $this->body->assignIfNone('SIDEBAR_RIGHT', $tpl->fetch('jblog~sidebar_right'));
+		
+		$tpl = new jTpl();
+        $tpl->assignZone('STATUS','jcommunity~status');
+        $this->body->assignIfNone('HEADER',$tpl->fetch('jblog~header'));
+		
+		$this->body->assignIfNone('MAIN','<p>no content</p>');
         $this->body->assignIfNone('FOOTER',$gJConfig->jblog['copyright']);
     }
 }

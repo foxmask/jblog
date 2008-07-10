@@ -13,7 +13,8 @@ class defaultCtrl extends jController {
     *
     */
     function index() {
-        $rep = $this->getResponse('mainHtml');
+        $rep = $this->getResponse('redirect');
+		$rep->action = 'jarticles~articles:index';
         		
         return $rep;
     }

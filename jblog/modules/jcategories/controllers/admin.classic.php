@@ -1,7 +1,7 @@
 <?php
 /**
     * @package      jBlog
-    * @subpackage   
+    * @subpackage   jCategories
     * @author       Thibault PIRONT < nuKs >
     * @copyright    2008 Thibault PIRONT
     * @link         http://forge.jelix.org/projects/sharecode/
@@ -10,16 +10,17 @@
 
 class adminCtrl extends jControllerDaoCrud {
     public $pluginParams = array(
-        '*'        => array('auth.required' => true, 'jacl2.right.and'=>array('articles.admin.access')),
-        // 'precreate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        //         'create'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        //          'savecreate'=>array('jacl2.rights.and'=>array('jcomments.comments.view','jcomments.comments.modify')),
-        'preupdate'=>array('jacl2.rights.and'=>array('articles.admin.modify')),
-        'editupdate'=>array('jacl2.rights.and'=>array('articles.admin.modify')),
-        'saveupdate'=>array('jacl2.rights.and'=>array('articles.admin.modify')),
-        'view'=>array('jacl2.rights.and'=>array('articles.admin.view')),
-        'delete'=>array('jacl2.rights.and'=>array('articles.admin.delete')),
-        );
+        '*'=>array('jacl2.rights.and'=>array('admin.view')),
+        'index'=>array('jacl2.rights.and'=>array('jcategories.list')),
+        'view'=>array('jacl2.rights.and'=>array('jcategories.read')),
+        'precreate'=>array('jacl2.rights.and'=>array('jcategories.create')),
+        'create'=>array('jacl2.rights.and'=>array('jcategories.create')),
+        'savecreate'=>array('jacl2.rights.and'=>array('jcategories.create')),
+        'preupdate'=>array('jacl2.rights.and'=>array('jcategories.update')),
+        'editupdate'=>array('jacl2.rights.and'=>array('jcategories.update')),
+        'saveupdate'=>array('jacl2.rights.and'=>array('jcategories.update')),
+        'delete'=>array('jacl2.rights.and'=>array('jcategories.delete')),
+	);
 	
 	protected $dao = 'jcategories~categories';
 	protected $form = 'jcategories~categories';

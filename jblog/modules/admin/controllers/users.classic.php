@@ -11,6 +11,7 @@
 class usersCtrl extends jController {
 
     public $pluginParams=array(
+        '*'=>array('jacl2.rights.and'=>array('admin.view')),
         'index'=>array('jacl2.rights.and'=>array('acl.user.view')),
         'rights'=>array('jacl2.rights.and'=>array('acl.user.view')),
         'saverights'=>array('jacl2.rights.and'=>array('acl.user.view')),
