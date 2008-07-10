@@ -9,17 +9,16 @@
 */
 
 class defaultCtrl extends jController {
+	public $pluginParams=array(
+        'index'=>array('jacl2.rights.and'=>array('admin.view')),
+    );
+	
     /**
     *
     */
     function index() {
         $rep = $this->getResponse('adminHtml');
-        
-        //$rep->body->assignZone('HEADER', 'jcommunity~status');
-        
-        $rep->body->assign('MAIN', 'Les billets');
-        $rep->body->assign('FOOTER', 'Thibault PIRONT, tous droits réservés');
-        return $rep;
+		return $rep;
     }
 }
 ?>
