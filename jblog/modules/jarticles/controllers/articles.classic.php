@@ -40,7 +40,7 @@ class articlesCtrl extends jController {
 	
     function view() {
 		global $gJConfig;
-		$id =$this->intParam('id');
+		$id = $this->intParam('id');
 		
         $rep = $this->getResponse('articlesHtml');
 		$rep->body->assign('MAIN', jZone::get('jarticles~article', array('id' => $id)).

@@ -19,9 +19,19 @@ class articleZone extends jZone {
 		global $gJConfig;
 		$id = $this->getParam("id");
         $artfactory = jDao::get("jarticles~articles");
-		$article = $artfactory->get($id);
 		
-        $this->_tpl->assign('article', $article);
+		$conditions = jDao::createConditions();
+		$conditions->startGroup('AND');
+			$conditions->addCondition('published', '=', 'TRUE');
+			$conditions->addCondition('id', '=', $id);
+		$conditions->endGroup();
+		
+		$article = $artfactory->findBy($conditions, 0, 1);
+		foreach($article as $a)
+		{
+			$article = $a;
+        }
+		$this->_tpl->assign('article', $article);
 		
 		$srv_tags = jClasses::getService("jtags~tags");
 		$tags = $srv_tags->getTagsBySubject($gJConfig->jblog['scope'], $id);
