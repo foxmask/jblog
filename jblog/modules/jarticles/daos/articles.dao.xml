@@ -31,14 +31,6 @@
                  <orderitem property="date" way="desc" />
             </order>
         </method>
-		
-        <method name="getPublished" type="selectfirst">
-			<parameter name="id" />
-			<conditions logic="and">
-				<eq property="id" value="$id" />
-				<eq property="published" value="TRUE" />
-			</conditions>
-        </method>
 
         <method name="count" type="count">
         </method>

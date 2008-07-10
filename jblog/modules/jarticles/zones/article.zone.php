@@ -19,7 +19,7 @@ class articleZone extends jZone {
 		global $gJConfig;
 		$id = $this->getParam("id");
         $artfactory = jDao::get("jarticles~articles");
-		$article = $artfactory->getPublished($id);
+		$article = $artfactory->get($id);
 		
         $this->_tpl->assign('article', $article);
 		
