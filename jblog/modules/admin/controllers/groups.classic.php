@@ -11,6 +11,7 @@
 class groupsCtrl extends jController {
 
     public $pluginParams=array(
+        '*'=>array('jacl2.rights.and'=>array('admin.view')),
         'index'=>array('jacl2.rights.and'=>array('acl.group.view')),
         'saverights'=>array('jacl2.rights.and'=>array('acl.group.view')),
         'newgroup'=>array('jacl2.rights.and'=>array('acl.group.view','acl.group.create')),
