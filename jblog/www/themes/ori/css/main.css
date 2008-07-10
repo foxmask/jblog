@@ -1,0 +1,69 @@
+body
+{
+	font-size: 1em;
+	font-family: Helvetica;
+	background-color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	text-indent: 1em;
+}
+
+.col1
+{
+	background-color: rgb(250,250,250);
+}
+
+.col2
+{
+	background-color: rgb(255,255,255);
+}
+
+#login-status
+{
+	display:inline;
+}
+
+#tagscloud
+{
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px dotted rgb(245,245,245);
+	background-color: rgb(252,252,252);
+	text-align: center;
+	padding; 5px;
+}
+
+#head, #foot
+{
+	width: 100%;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px dotted #AAAAAA;
+	background-color: #EEEEEE;
+	text-align: center;
+	padding; 5px;
+}
+
+#main
+{
+	float: left;
+	//width: 83%;
+	height: 100%;
+}
+
+#menu
+{
+	float: right;
+	width: 200px;
+	height: 100%;
+}
+
+
+#foot
+{
+	float: left;
+}
