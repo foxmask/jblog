@@ -19,7 +19,7 @@
         <td>{$article->author}</td>
         <td>{$article->date}</td>
 		{ifacl2 "admin.view"}
-        	<th><a href="{jUrl 'jarticles~admin:view', array('id' => $article->id)}">{@jarticles~default.modify.button@}</a></td>
+        	<th><a href="{jurl 'jarticles~admin:view', array('id' => $article->id)}">{@jarticles~default.modify.button@}</a></td>
 		{/ifacl2}
     </tr>
 	<tr>

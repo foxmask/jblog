@@ -23,7 +23,7 @@
         <td>{$a->author}</td>
         <td>{$a->date}</td>
 		{ifacl2 "admin.view"}
-        	<th><a href="{jUrl 'jarticles~admin:view', array('id' => $a->id)}">{@jarticles~default.modify.button@}</a></td>
+        	<th><a href="{jurl 'jarticles~admin:view', array('id' => $a->id)}">{@jarticles~default.modify.button@}</a></td>
 		{/ifacl2}
     </tr>
 	{if $fetchContent === true}

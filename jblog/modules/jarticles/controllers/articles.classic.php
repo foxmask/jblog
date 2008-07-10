@@ -65,7 +65,7 @@ class articlesCtrl extends jController {
         $first = true;
 		
 		$rep->infos->title = $gJConfig->jblog['name'];
-		$rep->infos->webSiteUrl= "http://" .$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].jUrl::get('jarticles~articles:index');
+		$rep->infos->webSiteUrl= "http://" .$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].jurl::get('jarticles~articles:index');
 		$rep->infos->copyright = $gJConfig->jblog['copyright'];
 		$rep->infos->description = $gJConfig->jblog['description'];
 		$rep->infos->ttl=60;
@@ -80,7 +80,7 @@ class articlesCtrl extends jController {
                 $first=false;
             }
 			
-            $url = "http://" .$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].jUrl::get('jarticles~articles:view', array('id'=>$article->id));
+            $url = "http://" .$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].jurl::get('jarticles~articles:view', array('id'=>$article->id));
 			
 			$wr = new jWiki('wr3_to_xhtml');
 			$content = $wr->render($article->content);

@@ -1,6 +1,6 @@
 <h4>{@admin~default.ranks.title@}</h4>
-<a href="{jUrl 'admin~groups:index'}">{@admin~default.groups.title@}</a><br/>
-<a href="{jUrl 'admin~users:index'}">{@admin~default.users.title@}</a><br/>
+<a href="{jurl 'admin~groups:index'}">{@admin~default.groups.title@}</a><br/>
+<a href="{jurl 'admin~users:index'}">{@admin~default.users.title@}</a><br/>
 <hr />
 <h4>{@admin~default.posts.title@}</h4>
 <a href="{jurl 'jarticles~admin:index'}">{@admin~default.posts.title@}</a><br/>

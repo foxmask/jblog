@@ -38,18 +38,18 @@ class loginCtrl extends jController {
 
         $form = jForms::fill('jcommunity~login');
         if(!$form) {
-            $rep->url = jUrl::get($conf['after_logout']);
+            $rep->url = jurl::get($conf['after_logout']);
             return $rep;
         }
 
         if (!jAuth::login($form->getData('auth_login'), $form->getData('auth_password'), $form->getData('auth_remember_me'))){
             sleep (intval($conf['on_error_sleep']));
             $form->setErrorOn('login',jLocale::get('jcommunity~login.error'));
-            $url_return = jUrl::get($conf['after_logout']);
+            $url_return = jurl::get($conf['after_logout']);
         } else {
             jForms::destroy('jcommunity~login');
             if (!($conf['enable_after_login_override'] && $url_return = $this->param('auth_url_return'))){
-                $url_return =  jUrl::get($conf['after_login']);
+                $url_return =  jurl::get($conf['after_login']);
             }
         }
 
@@ -69,7 +69,7 @@ class loginCtrl extends jController {
             throw new jException ('jauth~autherror.no.auth_logout');
 
         if (!($conf['enable_after_logout_override'] && $url_return= $this->param('auth_url_return'))){
-            $url_return =  jUrl::get($conf['after_logout']);
+            $url_return =  jurl::get($conf['after_logout']);
         }
 
         $rep->url = $url_return;

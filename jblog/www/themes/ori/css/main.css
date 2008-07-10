@@ -51,14 +51,16 @@ h1, h2, h3, h4, h5, h6
 #main
 {
 	float: left;
-	//width: 83%;
+	width: 83%;
+	max-width: 83%;
 	height: 100%;
 }
 
 #menu
 {
 	float: right;
-	width: 200px;
+	width: 13%;
+	max-width: 13%;
 	height: 100%;
 }
 
