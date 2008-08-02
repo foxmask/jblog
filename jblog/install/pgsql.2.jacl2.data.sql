@@ -20,7 +20,7 @@ INSERT INTO jacl2_rights (id_aclsbj, id_aclgrp, id_aclres) VALUES ('acl.user.vie
 
 
 
-INSERT INTO jacl2_group (id_aclgrp, name, grouptype, ownerlogin) VALUES (0, 'anonymous', 0, NULL); -- id_aclgrp = 0
+INSERT INTO jacl2_group (id_aclgrp, name, grouptype, ownerlogin) VALUES (0, 'anonymous', 1, NULL); -- id_aclgrp = 0
 INSERT INTO jacl2_group (name, grouptype, ownerlogin) VALUES ('redactors', 0, NULL); -- id_aclgrp = 3
 INSERT INTO jacl2_group (name, grouptype, ownerlogin) VALUES ('moderators', 0, NULL); -- id_aclgrp = 4
 
