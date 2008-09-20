@@ -1,5 +1,5 @@
 -- Comments table
-CREATE TABLE `jcomments` (
+CREATE TABLE `sc_comments` (
     `com_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `com_scope` VARCHAR(50) NOT NULL,   -- 'snippet' or 'application'
     `com_subject_id` INT UNSIGNED NOT NULL, -- sc_snippets::sn_id or sc_apps::app_id
