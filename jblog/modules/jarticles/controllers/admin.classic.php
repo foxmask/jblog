@@ -61,7 +61,6 @@ class adminCtrl extends jControllerDaoCrud {
 		
 	    $tags = jClasses::getService("jtags~tags")->getTagsBySubject($gJConfig->jblog['scope'], $this->param('id'));
 		$form->setData('tags', implode(', ',$tags));
-		
 		$published = ($form->getData('published') == 't') ? 'TRUE' : 'FALSE';
 		$form->setData('published', $published);
     }

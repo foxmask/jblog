@@ -4,7 +4,7 @@
 ; What to do if a right is required but the user has not this right
 ; 1 = generate an error. This value should be set for web services (xmlrpc, jsonrpc...)
 ; 2 = redirect to an action
-on_error = 2
+on_error = 1
 
 ; locale key for the error message when on_error=1
 error_message = "jelix~errors.action.right.needed"
